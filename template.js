@@ -24,12 +24,12 @@ exports.warnOn = '*';
 exports.template = function( grunt, init, done ) {
 	init.process( {}, [
 		// Prompt for these values.
-		init.prompt('name'),
-		init.prompt('description'),
-		init.prompt('homepage'),
-		init.prompt('author_name'),
-		init.prompt('author_email'),
-		init.prompt('author_url')
+		init.prompt( 'name', 'WP Plugin' ),
+		init.prompt( 'description', 'The best WordPress extension ever made!' ),
+		init.prompt( 'homepage', 'http://wordpress.org/extend/plugins' ),
+		init.prompt( 'author_name' ),
+		init.prompt( 'author_email' ),
+		init.prompt( 'author_url' )
 	], function( err, props ) {
 		props.keywords = [];
 		props.devDependencies = {
@@ -38,6 +38,8 @@ exports.template = function( grunt, init, done ) {
 			'grunt-contrib-jshint': '~0.1.1',
 			'grunt-contrib-nodeunit': '~0.1.2',
 			'grunt-contrib-watch': '~0.2.0',
+			"grunt-contrib-sass"  : "~0.2.2",
+			"grunt-contrib-less"  : "~0.5.0",
 		};
 		
 		// Files to copy and process
