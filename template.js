@@ -55,7 +55,7 @@ exports.template = function( grunt, init, done ) {
 		
 		// Files to copy and process
 		var files = init.filesToCopy( props );
-		
+
 		switch( props.css_type.toLowerCase()[0] ) {
 			case 'l':
 				delete files[ 'assets/css/sass/' + props.js_safe_name + '.scss'];
@@ -64,6 +64,7 @@ exports.template = function( grunt, init, done ) {
 				props.css_type = 'less';
 				break;
 			case 'n':
+			case undefined:
 				delete files[ 'assets/css/less/' + props.js_safe_name + '.less'];
 				delete files[ 'assets/css/sass/' + props.js_safe_name + '.scss'];
 				
