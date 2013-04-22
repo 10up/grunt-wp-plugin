@@ -24,7 +24,7 @@ exports.warnOn = '*';
 exports.template = function( grunt, init, done ) {
 	init.process( {}, [
 		// Prompt for these values.
-		init.prompt( 'name', 'WP Plugin' ),
+		init.prompt( 'title', 'WP Plugin' ),
 		init.prompt( 'description', 'The best WordPress extension ever made!' ),
 		init.prompt( 'homepage', 'http://wordpress.org/extend/plugins' ),
 		init.prompt( 'author_name' ),
@@ -42,7 +42,8 @@ exports.template = function( grunt, init, done ) {
 			"grunt-contrib-less"  : "~0.5.0",
 		};
 		
-		// Get the capitalized version of the plugin safe name for PHP constants
+		// Sanitize names where we need to for PHP/JS
+		props.name = props.title.replace( ' ', '-' ).toLowerCase();
 		props.js_safe_name_caps = props.js_safe_name.toUpperCase();
 		
 		// Files to copy and process
