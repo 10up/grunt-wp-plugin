@@ -29,7 +29,12 @@ exports.template = function( grunt, init, done ) {
 		init.prompt( 'homepage', 'http://wordpress.org/extend/plugins' ),
 		init.prompt( 'author_name' ),
 		init.prompt( 'author_email' ),
-		init.prompt( 'author_url' )
+		init.prompt( 'author_url' ),
+		{
+			name: 'css_type',
+			message: 'Will you use "SASS", "LESS", or "none" for CSS with this project?',
+			default: 'SASS'
+		}
 	], function( err, props ) {
 		props.keywords = [];
 		props.devDependencies = {
@@ -38,8 +43,6 @@ exports.template = function( grunt, init, done ) {
 			'grunt-contrib-jshint': '~0.1.1',
 			'grunt-contrib-nodeunit': '~0.1.2',
 			'grunt-contrib-watch': '~0.2.0',
-			"grunt-contrib-sass"  : "~0.2.2",
-			"grunt-contrib-less"  : "~0.5.0",
 		};
 		
 		// Sanitize names where we need to for PHP/JS
@@ -52,6 +55,30 @@ exports.template = function( grunt, init, done ) {
 		
 		// Files to copy and process
 		var files = init.filesToCopy( props );
+		
+		switch( props.css_type.toLowerCase()[0] ) {
+			case 'l':
+				delete files[ 'assets/css/sass/' + props.js_safe_name + '.scss'];
+				
+				props.devDependencies["grunt-contrib-less"] = "~0.5.0";
+				props.css_type = 'less';
+				break;
+			case 'n':
+				delete files[ 'assets/css/less/' + props.js_safe_name + '.less'];
+				delete files[ 'assets/css/sass/' + props.js_safe_name + '.scss'];
+				
+				props.css_type = 'none';
+				break;
+			// SASS is the default
+			default:
+				delete files[ 'assets/css/less/' + props.js_safe_name + '.less'];
+				
+				props.devDependencies["grunt-contrib-sass"] = "~0.2.2";
+				props.css_type = 'sass';
+				break;
+		}
+		
+		console.log( files );
 		
 		// Actually copy and process files
 		init.copyAndProcess( files, props );
