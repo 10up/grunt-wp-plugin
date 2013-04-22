@@ -42,6 +42,9 @@ exports.template = function( grunt, init, done ) {
 			"grunt-contrib-less"  : "~0.5.0",
 		};
 		
+		// Get the capitalized version of the plugin safe name for PHP constants
+		props.js_safe_name_caps = props.js_safe_name.toUpperCase();
+		
 		// Files to copy and process
 		var files = init.filesToCopy( props );
 		
