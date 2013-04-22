@@ -1,3 +1,8 @@
 {
-	"plugin.php": "{%= js_safe_name %}.php"
+	"plugin.php": "{%= js_safe_name %}.php",
+	"assets/css/less/plugin.less": "assets/css/less/{%= js_safe_name %}.less",
+	"assets/css/sass/plugin.scss": "assets/css/sass/{%= js_safe_name %}.scss",
+	"assets/css/js/src/plugin.js": "assets/css/js/src/{%= js_safe_name %}.js",
+	"lang/plugin.mo": "lang/{%= js_safe_name %}.mo",
+	"lang/plugin.po": "lang/{%= js_safe_name %}.po"
 }
