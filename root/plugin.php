@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: {%= name %}
+ * Plugin Name: {%= title %}
  * Plugin URI:  {%= homepage %}
  * Description: {%= description %}
  * Version:     0.1.0

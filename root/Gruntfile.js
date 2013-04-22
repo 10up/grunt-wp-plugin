@@ -8,7 +8,7 @@ module.exports = function( grunt ) {
 		concat: {
 			options: {
 				stripBanners: true,
-				banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd") %>\n' +
+				banner: '/*! <%= pkg.title %> - v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd") %>\n' +
 					' * <%= pkg.homepage %>\n' +
 					' * Copyright (c) <%= grunt.template.today("yyyy") %>;' +
 					' * Licensed GPLv2+' +
@@ -50,7 +50,7 @@ module.exports = function( grunt ) {
 					'js/{%= js_safe_name %}.min.js': ['js/{%= js_safe_name %}.src.js']
 				},
 				options: {
-					banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd") %>\n' +
+					banner: '/*! <%= pkg.title %> - v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd") %>\n' +
 						' * <%= pkg.homepage %>\n' +
 						' * Copyright (c) <%= grunt.template.today("yyyy") %>;' +
 						' * Licensed GPLv2+' +
