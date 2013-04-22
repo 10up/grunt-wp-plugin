@@ -14,12 +14,12 @@ module.exports = function( grunt ) {
 					' * Licensed GPLv2+' +
 					' */\n'
 			},
-			{%= js_safe_name %}: [
+			{%= js_safe_name %}: {
 				src: [
 					'js/src/{%= js_safe_name %}.js'
 				],
 				dest: 'js/{%= js_safe_name %}.src.js'
-			]
+			}
 		},
 		jshint: {
 			all: [
