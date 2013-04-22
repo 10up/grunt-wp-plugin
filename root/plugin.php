@@ -1,11 +1,11 @@
 <?php
 /**
- * Plugin Name: {%= name %]
+ * Plugin Name: {%= name %}
  * Plugin URI:  {%= homepage %}
  * Description: {%= description %}
  * Version:     0.1.0
  * Author:      {%= author_name %}
- * Author URI:  {%= author_uri %}
+ * Author URI:  {%= author_url %}
  * License:     GPLv2+
  */
 ?>
