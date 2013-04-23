@@ -32,8 +32,8 @@ exports.template = function( grunt, init, done ) {
 		init.prompt( 'author_url' ),
 		{
 			name: 'css_type',
-			message: 'Will you use "SASS", "LESS", or "none" for CSS with this project?',
-			default: 'SASS'
+			message: 'Will you use "Sass", "LESS", or "none" for CSS with this project?',
+			default: 'Sass'
 		}
 	], function( err, props ) {
 		props.keywords = [];
