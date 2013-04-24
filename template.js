@@ -25,6 +25,11 @@ exports.template = function( grunt, init, done ) {
 	init.process( {}, [
 		// Prompt for these values.
 		init.prompt( 'title', 'WP Plugin' ),
+		{
+			name   : 'prefix',
+			message: 'PHP function prefix (alpha and underscore characters only)',
+			default: 'WPP'
+		},
 		init.prompt( 'description', 'The best WordPress extension ever made!' ),
 		init.prompt( 'homepage', 'http://wordpress.org/extend/plugins' ),
 		init.prompt( 'author_name' ),
@@ -32,8 +37,8 @@ exports.template = function( grunt, init, done ) {
 		init.prompt( 'author_url' ),
 		{
 			name: 'css_type',
-			message: 'Will you use "SASS", "LESS", or "none" for CSS with this project?',
-			default: 'SASS'
+			message: 'Will you use "Sass", "LESS", or "none" for CSS with this project?',
+			default: 'Sass'
 		}
 	], function( err, props ) {
 		props.keywords = [];
@@ -47,12 +52,16 @@ exports.template = function( grunt, init, done ) {
 		
 		// Sanitize names where we need to for PHP/JS
 		props.name = props.title.replace( ' ', '-' ).toLowerCase();
+		// Development prefix (i.e. to prefix PHP function names, variables)
+		props.prefix = props.prefix.replace('/[^a-z_]/i', '').toLowerCase();
+		// Development prefix in all caps (e.g. for constants)
+		props.prefix_caps = props.prefix.toUpperCase();
 		// An additional value, safe to use as a JavaScript identifier.
 		props.js_safe_name = props.name.replace(/[\W_]+/g, '_').replace(/^(\d)/, '_$1');
 		// An additional value that won't conflict with NodeUnit unit tests.
 		props.js_test_safe_name = props.js_safe_name === 'test' ? 'myTest' : props.js_safe_name;
 		props.js_safe_name_caps = props.js_safe_name.toUpperCase();
-		
+
 		// Files to copy and process
 		var files = init.filesToCopy( props );
 
