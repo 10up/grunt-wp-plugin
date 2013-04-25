@@ -1,5 +1,3 @@
-'use strict';
-
 module.exports = function( grunt ) {
 
 	// Project configuration
@@ -54,7 +52,7 @@ module.exports = function( grunt ) {
 						' * <%= pkg.homepage %>\n' +
 						' * Copyright (c) <%= grunt.template.today("yyyy") %>;' +
 						' * Licensed GPLv2+' +
-						' */\n'
+						' */\n',
 					mangle: {
 						except: ['jQuery']
 					}
