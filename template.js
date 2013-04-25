@@ -28,7 +28,7 @@ exports.template = function( grunt, init, done ) {
 		{
 			name   : 'prefix',
 			message: 'PHP function prefix (alpha and underscore characters only)',
-			default: 'WPP'
+			default: 'wpplugin'
 		},
 		init.prompt( 'description', 'The best WordPress extension ever made!' ),
 		init.prompt( 'homepage', 'http://wordpress.org/extend/plugins' ),

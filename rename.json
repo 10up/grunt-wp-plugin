@@ -3,5 +3,5 @@
 	"assets/css/less/plugin.less": "assets/css/less/{%= js_safe_name %}.less",
 	"assets/css/sass/plugin.scss": "assets/css/sass/{%= js_safe_name %}.scss",
 	"assets/css/js/src/plugin.js": "assets/css/js/src/{%= js_safe_name %}.js",
-	"lang/plugin.po": "lang/{%= prefix_caps %}.po"
+	"lang/plugin.po": "lang/{%= prefix %}.po"
 }
