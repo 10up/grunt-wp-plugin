@@ -31,6 +31,12 @@ grunt-init wp-plugin
 
 _Note that this template will generate files in the current directory, so be sure to change to a new directory first if you don't want to overwrite existing files._
 
+Install the NPM modules required to actually process your newly-created project by running:
+
+```
+npm install
+```
+
 ## Scaffold
 
 After running the init command above, you will be presented with a standard directory structure similar to:
