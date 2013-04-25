@@ -30,3 +30,45 @@ grunt-init wp-plugin
 ```
 
 _Note that this template will generate files in the current directory, so be sure to change to a new directory first if you don't want to overwrite existing files._
+
+## Scaffold
+
+After running the init command above, you will be presented with a standard directory structure similar to:
+
+    /plugin
+    .. /assets
+    .. .. /css
+    .. .. .. /src
+    .. .. .. /sass
+    .. .. .. /less
+    .. .. /js
+    .. .. .. /src
+    .. .. /img
+    .. .. .. /src
+    .. /includes
+    .. /lang
+    .. .. plugin.po
+    .. .gitignore
+    .. Gruntfile.js
+    .. plugin.php
+    .. readme.php
+
+### CSS vs Sass vs LESS
+
+Depending on how you answer the prompt regarding the use of a preprocessor, you will either have a `/src` directory (CSS), a `/sass` directory (Sass), or a `/less` directory (LESS) under your normal `/css` directory.  The goal here is that you only ever edit files in the related source directory and Grunt will automatically build and minify your final stylesheets directly in `/css`.
+
+If you're using Sass or Less, the raw files will be processed into `/css/filename.src.css` and minified into `/css/filename.min.css`.
+
+If you're using vanilla CSS, the source files will be minified into `/css/filename.min.css`.
+
+### JavaScript
+
+You should only ever be modifying script files in the `/js/src` directory.  Grunt will automatically concatenate and minify your scripts into `/js/filename.src.js` and `/js/filename.min.js`.  These generated files should never be modified directly.
+
+### Images
+
+The `/img/src` directory exists only to allow you to keep track of source files (like PSDs or separate images that have been merged into sprites).  This helps keep source files under version control, and allows you to bundle them with the distribution of your new GPL plugin.
+
+## Release History
+
+ * 2013-04-26   v0.1.0   Initial public release.
