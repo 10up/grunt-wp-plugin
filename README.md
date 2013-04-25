@@ -77,4 +77,4 @@ The `/img/src` directory exists only to allow you to keep track of source files 
 
 ## Release History
 
- * 2013-04-26   v0.1.0   Initial public release.
+ * 2013-04-25   v0.1.0   Initial public release.
