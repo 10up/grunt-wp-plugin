@@ -37,7 +37,7 @@ exports.template = function( grunt, init, done ) {
 		init.prompt( 'author_url' ),
 		{
 			name: 'css_type',
-			message: 'Will you use "Sass", "LESS", or "none" for CSS with this project?',
+			message: 'CSS Preprocessor: Will you use "Sass", "LESS", or "none" for CSS with this project?',
 			default: 'Sass'
 		}
 	], function( err, props ) {
@@ -45,6 +45,7 @@ exports.template = function( grunt, init, done ) {
 		props.devDependencies = {
 			'grunt-contrib-concat': '~0.1.2',
 			'grunt-contrib-uglify': '~0.1.1',
+			'grunt-contrib-cssmin': '~0.6.0',
 			'grunt-contrib-jshint': '~0.1.1',
 			'grunt-contrib-nodeunit': '~0.1.2',
 			'grunt-contrib-watch': '~0.2.0',
