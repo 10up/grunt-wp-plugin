@@ -81,6 +81,25 @@ module.exports = function( grunt ) {
 			}		
 		},
 		{% } %}
+		cssmin: {
+			options: {
+				banner: '/*! <%= pkg.title %> - v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd") %>\n' +
+					' * <%= pkg.homepage %>\n' +
+					' * Copyright (c) <%= grunt.template.today("yyyy") %>;' +
+					' * Licensed GPLv2+' +
+					' */\n'
+			},
+			minify: {
+				expand: true,
+				{% if ('sass' === css_type || 'less' === css_type) { %}
+				src: ['css/*.src.css'],
+				{% } else { %}
+				src: ['css/src/*.css'],
+				{% } %}
+				dest: 'css/',
+				ext: '*.min.css'
+			}
+		},
 		watch:  {
 			{% if ('sass' === css_type) { %}
 			sass: {
