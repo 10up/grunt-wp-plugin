@@ -90,12 +90,14 @@ module.exports = function( grunt ) {
 			minify: {
 				expand: true,
 				{% if ('sass' === css_type || 'less' === css_type) { %}
-				src: ['assets/css/*.src.css'],
+				cwd: 'assets/css/',				
+				src: ['{%= js_safe_name %}.src.css'],
 				{% } else { %}
-				src: ['assets/css/src/*.css'],
+				cwd: 'assets/css/src/',
+				src: ['{%= js_safe_name %}.css'],
 				{% } %}
 				dest: 'assets/css/',
-				ext: '*.min.css'
+				ext: '.min.css'
 			}
 		},
 		watch:  {
