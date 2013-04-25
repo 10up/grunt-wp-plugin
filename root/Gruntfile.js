@@ -85,7 +85,7 @@ module.exports = function( grunt ) {
 			{% if ('sass' === css_type) { %}
 			sass: {
 				files: ['css/sass/*.scss'],
-				tasks: ['sass'],
+				tasks: ['sass', 'cssmin'],
 				options: {
 					debounceDelay: 500
 				}
@@ -93,7 +93,15 @@ module.exports = function( grunt ) {
 			{% } else if ('less' === css_type) { %}
 			less: {
 				files: ['css/less/*.less'],
-				tasks: ['less'],
+				tasks: ['less', 'cssmin'],
+				options: {
+					debounceDelay: 500
+				}
+			},
+			{% } else { %}
+			styles: {
+				files: ['css/src/*.css'],
+				tasks: ['cssmin'],
 				options: {
 					debounceDelay: 500
 				}
@@ -113,6 +121,7 @@ module.exports = function( grunt ) {
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
+	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	{% if ('sass' === css_type) { %}
 	grunt.loadNpmTasks('grunt-contrib-sass');
 	{% } else if ('less' === css_type) { %}
@@ -122,11 +131,11 @@ module.exports = function( grunt ) {
 	
 	// Default task.
 	{% if ('sass' === css_type) { %}
-	grunt.registerTask( 'default', ['jshint', 'concat', 'uglify', 'sass'] );
+	grunt.registerTask( 'default', ['jshint', 'concat', 'uglify', 'sass', 'cssmin'] );
 	{% } else if ('less' === css_type) { %}
-	grunt.registerTask( 'default', ['jshint', 'concat', 'uglify', 'less'] );
+	grunt.registerTask( 'default', ['jshint', 'concat', 'uglify', 'less', 'cssmin'] );
 	{% } else { %}
-	grunt.registerTask( 'default', ['jshint', 'concat', 'uglify'] );
+	grunt.registerTask( 'default', ['jshint', 'concat', 'uglify', 'cssmin'] );
 	{% } %}
 
 	grunt.util.linefeed = '\n';

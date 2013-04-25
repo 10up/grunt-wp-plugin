@@ -2,6 +2,7 @@
 	"plugin.php": "{%= js_safe_name %}.php",
 	"assets/css/less/plugin.less": "assets/css/less/{%= js_safe_name %}.less",
 	"assets/css/sass/plugin.scss": "assets/css/sass/{%= js_safe_name %}.scss",
+	"assets/css/src/plugin.css": "assets/css/css/{%= js_safe_name %}.css",
 	"assets/css/js/src/plugin.js": "assets/css/js/src/{%= js_safe_name %}.js",
 	"lang/plugin.po": "lang/{%= prefix %}.po"
 }
