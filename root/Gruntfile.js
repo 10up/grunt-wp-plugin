@@ -14,16 +14,16 @@ module.exports = function( grunt ) {
 			},
 			{%= js_safe_name %}: {
 				src: [
-					'js/src/{%= js_safe_name %}.js'
+					'assets/js/src/{%= js_safe_name %}.js'
 				],
-				dest: 'js/{%= js_safe_name %}.src.js'
+				dest: 'assets/js/{%= js_safe_name %}.src.js'
 			}
 		},
 		jshint: {
 			all: [
 				'Gruntfile.js',
-				'js/src/**/*.js',
-				'js/test/**/*.js'
+				'assets/js/src/**/*.js',
+				'assets/js/test/**/*.js'
 			],
 			options: {
 				curly:   true,
@@ -45,7 +45,7 @@ module.exports = function( grunt ) {
 		uglify: {
 			all: {
 				files: {
-					'js/{%= js_safe_name %}.min.js': ['js/{%= js_safe_name %}.src.js']
+					'assets/js/{%= js_safe_name %}.min.js': ['assets/js/{%= js_safe_name %}.src.js']
 				},
 				options: {
 					banner: '/*! <%= pkg.title %> - v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd") %>\n' +
@@ -60,13 +60,13 @@ module.exports = function( grunt ) {
 			}
 		},
 		test:   {
-			files: ['test/**/*.js']
+			files: ['assets/js/test/**/*.js']
 		},
 		{% if ('sass' === css_type) { %}
 		sass:   {
 			all: {
 				files: {
-					'css/{%= js_safe_name %}.css': 'css/sass/{%= js_safe_name %}.scss'
+					'assets/css/{%= js_safe_name %}.css': 'assets/css/sass/{%= js_safe_name %}.scss'
 				}
 			}
 		},
@@ -74,7 +74,7 @@ module.exports = function( grunt ) {
 		less:   {
 			all: {
 				files: {
-					'css/{%= js_safe_name %}.css': 'css/less/{%= js_safe_name %}.less'
+					'assets/css/{%= js_safe_name %}.css': 'assets/css/less/{%= js_safe_name %}.less'
 				}
 			}		
 		},
@@ -90,18 +90,18 @@ module.exports = function( grunt ) {
 			minify: {
 				expand: true,
 				{% if ('sass' === css_type || 'less' === css_type) { %}
-				src: ['css/*.src.css'],
+				src: ['assets/css/*.src.css'],
 				{% } else { %}
-				src: ['css/src/*.css'],
+				src: ['assets/css/src/*.css'],
 				{% } %}
-				dest: 'css/',
+				dest: 'assets/css/',
 				ext: '*.min.css'
 			}
 		},
 		watch:  {
 			{% if ('sass' === css_type) { %}
 			sass: {
-				files: ['css/sass/*.scss'],
+				files: ['assets/css/sass/*.scss'],
 				tasks: ['sass', 'cssmin'],
 				options: {
 					debounceDelay: 500
@@ -109,7 +109,7 @@ module.exports = function( grunt ) {
 			},
 			{% } else if ('less' === css_type) { %}
 			less: {
-				files: ['css/less/*.less'],
+				files: ['assets/css/less/*.less'],
 				tasks: ['less', 'cssmin'],
 				options: {
 					debounceDelay: 500
@@ -117,7 +117,7 @@ module.exports = function( grunt ) {
 			},
 			{% } else { %}
 			styles: {
-				files: ['css/src/*.css'],
+				files: ['assets/css/src/*.css'],
 				tasks: ['cssmin'],
 				options: {
 					debounceDelay: 500
@@ -125,7 +125,7 @@ module.exports = function( grunt ) {
 			},
 			{% } %}
 			scripts: {
-				files: ['js/src/**/*.js', 'js/vendor/**/*.js'],
+				files: ['assets/js/src/**/*.js', 'assets/js/vendor/**/*.js'],
 				tasks: ['jshint', 'concat', 'uglify'],
 				options: {
 					debounceDelay: 500
