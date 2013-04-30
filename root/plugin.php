@@ -8,9 +8,7 @@
  * Author URI:  {%= author_url %}
  * License:     GPLv2+
  */
-?>
 
-<?php
 /** 
  * Copyright {%= grunt.template.today('yyyy') %}  {%= author_name %}  (email : {%= author_email %})
  * 
@@ -39,7 +37,7 @@ define( '{%= prefix_caps %}_PATH',    dirname( __FILE__ ) . '/' );
  * - Registers the default textdomain.
  */
 function {%= prefix %}_init() {
-	load_plugin_textdomain( '{%= prefix %}', false, dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/lang' );
+	load_plugin_textdomain( '{%= prefix %}', false, dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages' );
 }
 
 /**
@@ -68,4 +66,3 @@ add_action( 'init', '{%= prefix %}_init' );
 // Wireup filters
 
 // Wireup shortcodes
-?>
