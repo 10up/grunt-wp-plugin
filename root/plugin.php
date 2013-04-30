@@ -8,9 +8,7 @@
  * Author URI:  {%= author_url %}
  * License:     GPLv2+
  */
-?>
 
-<?php
 /** 
  * Copyright {%= grunt.template.today('yyyy') %}  {%= author_name %}  (email : {%= author_email %})
  * 
@@ -68,4 +66,3 @@ add_action( 'init', '{%= prefix %}_init' );
 // Wireup filters
 
 // Wireup shortcodes
-?>
