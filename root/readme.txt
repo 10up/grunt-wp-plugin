@@ -19,7 +19,7 @@ License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 = Manual Installation =
 
 1. Upload the entire `/{%= name %}` directory to the `/wp-content/plugins/` directory.
-1. Activate {%= title %} through the 'Plugins' menu in WordPress.
+2. Activate {%= title %} through the 'Plugins' menu in WordPress.
 
 == Frequently Asked Questions ==
 
