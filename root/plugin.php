@@ -37,7 +37,7 @@ define( '{%= prefix_caps %}_PATH',    dirname( __FILE__ ) . '/' );
  * - Registers the default textdomain.
  */
 function {%= prefix %}_init() {
-	load_plugin_textdomain( '{%= prefix %}', false, dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages' );
+	load_plugin_textdomain( '{%= prefix %}', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 }
 
 /**
