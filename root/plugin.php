@@ -41,7 +41,7 @@ define( '{%= prefix_caps %}_PATH',    dirname( __FILE__ ) . '/' );
 function {%= prefix %}_init() {
 	$locale = apply_filters( 'plugin_locale', get_locale(), '{%= prefix %}' );
 	load_textdomain( '{%= prefix %}', WP_LANG_DIR . '/{%= prefix %}/{%= prefix %}-' . $locale . '.mo' );
-	load_plugin_textdomain( '{%= prefix %}', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+	load_plugin_textdomain( '{%= prefix %}', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 }
 
 /**
