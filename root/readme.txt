@@ -1,5 +1,5 @@
 === {%= title %} ===
-Contributors: 
+Contributors:      10up
 Donate link:       {%= homepage %}
 Tags: 
 Requires at least: 3.5.1
