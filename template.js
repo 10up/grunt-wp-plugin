@@ -1,6 +1,6 @@
 /**
  * grunt-wp-plugin
- * https://github.com/ericmann/grunt-wp-plugin
+ * https://github.com/10up/grunt-wp-plugin
  *
  * Copyright (c) 2013 Eric Mann, 10up
  * Licensed under the MIT License
@@ -31,7 +31,7 @@ exports.template = function( grunt, init, done ) {
 			default: 'wpplugin'
 		},
 		init.prompt( 'description', 'The best WordPress extension ever made!' ),
-		init.prompt( 'homepage', 'http://wordpress.org/extend/plugins' ),
+		init.prompt( 'homepage', 'http://wordpress.org/plugins' ),
 		init.prompt( 'author_name' ),
 		init.prompt( 'author_email' ),
 		init.prompt( 'author_url' ),
