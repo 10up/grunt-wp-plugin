@@ -1,6 +1,6 @@
 /**
  * grunt-wp-plugin
- * https://github.com/ericmann/grunt-wp-plugin
+ * https://github.com/10up/grunt-wp-plugin
  *
  * Copyright (c) 2013 Eric Mann, 10up
  * Licensed under the MIT License
