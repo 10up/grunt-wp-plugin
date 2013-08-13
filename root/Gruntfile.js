@@ -6,7 +6,7 @@ module.exports = function( grunt ) {
 		concat: {
 			options: {
 				stripBanners: true,
-				banner: '/*! <%= pkg.title %> - v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd") %>\n' +
+				banner: '/*! <%= pkg.title %> - v<%= pkg.version %>\n' +
 					' * <%= pkg.homepage %>\n' +
 					' * Copyright (c) <%= grunt.template.today("yyyy") %>;' +
 					' * Licensed GPLv2+' +
@@ -48,7 +48,7 @@ module.exports = function( grunt ) {
 					'assets/js/{%= js_safe_name %}.min.js': ['assets/js/{%= js_safe_name %}.js']
 				},
 				options: {
-					banner: '/*! <%= pkg.title %> - v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd") %>\n' +
+					banner: '/*! <%= pkg.title %> - v<%= pkg.version %>\n' +
 						' * <%= pkg.homepage %>\n' +
 						' * Copyright (c) <%= grunt.template.today("yyyy") %>;' +
 						' * Licensed GPLv2+' +
@@ -81,7 +81,7 @@ module.exports = function( grunt ) {
 		{% } %}
 		cssmin: {
 			options: {
-				banner: '/*! <%= pkg.title %> - v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd") %>\n' +
+				banner: '/*! <%= pkg.title %> - v<%= pkg.version %>\n' +
 					' * <%= pkg.homepage %>\n' +
 					' * Copyright (c) <%= grunt.template.today("yyyy") %>;' +
 					' * Licensed GPLv2+' +
@@ -133,6 +133,41 @@ module.exports = function( grunt ) {
 					debounceDelay: 500
 				}
 			}
+		},
+		clean: {
+			main: ['release/<%= pkg.version %>']
+		},
+		copy: {
+			// Copy the plugin to a versioned release directory
+			main: {
+				src:  [
+					'**',
+					'!node_modules/**',
+					'!release/**',
+					'!.git/**',
+					'!.sass-cache/**',
+					'!css/src/**',
+					'!js/src/**',
+					'!img/src/**',
+					'!Gruntfile.js',
+					'!package.json',
+					'!.gitignore',
+					'!.gitmodules'
+				],
+				dest: 'release/<%= pkg.version %>/'
+			}		
+		},
+		compress: {
+			main: {
+				options: {
+					mode: 'zip',
+					archive: './release/{%= js_safe_name %}.<%= pkg.version %>.zip'
+				},
+				expand: true,
+				cwd: 'release/<%= pkg.version %>/',
+				src: ['**/*'],
+				dest: '{%= js_safe_name %}/'
+			}		
 		}
 	} );
 	
@@ -147,6 +182,9 @@ module.exports = function( grunt ) {
 	grunt.loadNpmTasks('grunt-contrib-less');
 	{% } %}
 	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.loadNpmTasks( 'grunt-contrib-clean' );
+	grunt.loadNpmTasks( 'grunt-contrib-copy' );
+	grunt.loadNpmTasks( 'grunt-contrib-compress' );
 	
 	// Default task.
 	{% if ('sass' === css_type) { %}
@@ -156,6 +194,8 @@ module.exports = function( grunt ) {
 	{% } else { %}
 	grunt.registerTask( 'default', ['jshint', 'concat', 'uglify', 'cssmin'] );
 	{% } %}
+	
+	grunt.registerTask( 'build', ['default', 'clean', 'copy', 'compress'] );
 
 	grunt.util.linefeed = '\n';
 };
