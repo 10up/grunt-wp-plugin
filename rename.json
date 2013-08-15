@@ -3,6 +3,6 @@
 	"assets/css/less/plugin.less": "assets/css/less/{%= js_safe_name %}.less",
 	"assets/css/sass/plugin.scss": "assets/css/sass/{%= js_safe_name %}.scss",
 	"assets/css/src/plugin.css": "assets/css/src/{%= js_safe_name %}.css",
-	"assets/css/js/src/plugin.js": "assets/css/js/src/{%= js_safe_name %}.js",
+	"assets/js/src/plugin.js": "assets/js/src/{%= js_safe_name %}.js",
 	"languages/plugin.pot": "languages/{%= prefix %}.pot"
 }
