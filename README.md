@@ -77,6 +77,7 @@ The `/images/src` directory exists only to allow you to keep track of source fil
 
 ## Release History
 
+ * 2013-08-15   v0.1.7   Fix a typo in rename.json.
  * 2013-08-13   v0.1.6   Add deployment builder. Remove dates from Grunt headers.
  * 2013-07-18	v0.1.5	 Remove /extend references (props @trepmal).
  * 2013-05-30   v0.1.4   Fix broken package.json generator.
