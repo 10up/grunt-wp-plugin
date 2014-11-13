@@ -44,16 +44,16 @@ exports.template = function( grunt, init, done ) {
 		props.keywords = [];
 		props.version = '0.1.0';
 		props.devDependencies = {
-			'grunt': '~0.4.1',
-			'grunt-contrib-concat':   '~0.1.2',
-			'grunt-contrib-uglify':   '~0.1.1',
-			'grunt-contrib-cssmin':   '~0.6.0',
-			'grunt-contrib-jshint':   '~0.1.1',
-			'grunt-contrib-nodeunit': '~0.1.2',
-			'grunt-contrib-watch':    '~0.2.0',
-			'grunt-contrib-clean':    '~0.5.0',
-			'grunt-contrib-copy':     '~0.4.1',
-			'grunt-contrib-compress': '~0.5.2'
+			'grunt': '~0.4.5',
+			'grunt-contrib-concat':   '~0.5.0',
+			'grunt-contrib-uglify':   '~0.6.0',
+			'grunt-contrib-cssmin':   '~0.10.0',
+			'grunt-contrib-jshint':   '~0.10.0',
+			'grunt-contrib-nodeunit': '~0.4.1',
+			'grunt-contrib-watch':    '~0.6.1',
+			'grunt-contrib-clean':    '~0.6.0',
+			'grunt-contrib-copy':     '~0.7.0',
+			'grunt-contrib-compress': '~0.12.0'
 		};
 
 		// Sanitize names where we need to for PHP/JS
@@ -76,7 +76,7 @@ exports.template = function( grunt, init, done ) {
 				delete files[ 'assets/css/sass/' + props.js_safe_name + '.scss'];
 				delete files[ 'assets/css/src/' + props.js_safe_name + '.css' ];
 
-				props.devDependencies["grunt-contrib-less"] = "~0.5.0";
+				props.devDependencies["grunt-contrib-less"] = "~0.11.2";
 				props.css_type = 'less';
 				break;
 			case 'n':
