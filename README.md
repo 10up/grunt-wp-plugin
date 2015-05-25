@@ -1,5 +1,7 @@
 # grunt-wp-plugin
 
+**Deprecated**: Please use [generator-wp-make](https://github.com/10up/generator-wp-make) instead.
+
 > Create a WordPress plugin with [grunt-init][].
 
 [grunt-init]: http://gruntjs.com/project-scaffolding
