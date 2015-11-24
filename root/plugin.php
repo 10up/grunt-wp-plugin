@@ -31,7 +31,7 @@
 
 /**
  * Built using grunt-wp-plugin
- * Copyright (c) 2013 10up, LLC
+ * Copyright (c) {%= grunt.template.today('yyyy') %} 10up, LLC
  * https://github.com/10up/grunt-wp-plugin
  */
 
